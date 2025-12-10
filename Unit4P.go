@@ -1,6 +1,6 @@
 // Author: William Provost
 // Version: 1.0.0
-// Date: 2025-12-09
+// Date: 2025-12-10
 // Fileoverview: This program keeps track of car stats and simulates drive/fill/oil change
 
 package main
@@ -74,6 +74,7 @@ func displayCostToFillUp() float64 {
 	}
 	avg := sum / float64(fillIndex)
 	fmt.Printf("Average cost per fill-up: $%.2f\n", avg)
+	fmt.Printf("\n(Info) Returned average cost: $%.2f\n", avg)
 	return avg
 }
 
@@ -114,7 +115,7 @@ func main() {
 	oilChange()
 
 	fmt.Println("\nFinal car stats:")
-	fmt.Println(carStats())
+	fmt.Println(carStats()) // <-- this now shows odometer, oilChangeKM, and fillIndex properly
 
 	fmt.Println("\nDone.")
 }
