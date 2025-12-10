@@ -1,6 +1,6 @@
 /**
  * @author William Provost
- * @version 1.0.0
+ * @version 1.0.1
  * @date 2025-12-09
  * @fileoverview This program keeps track of car stats and simulates drive/fill/oil change
  */
@@ -31,25 +31,28 @@ function carStats(): string {
 
 // Function: wrapCar() prompts for a new colour and returns it
 function wrapCar(): string {
-  const newColour: string = prompt("Enter a new colour to wrap the car with: ") || carColor;
+  const newColour: string =
+    prompt("Enter a new colour to wrap the car with: ") || carColor;
   return newColour.trim();
 }
 
 // Function: drive() returns random km driven and updates odometer
 function drive(): number {
-  const driven: number = Math.floor(Math.random() * 901) + 100; // 100..1000
-  odometer += driven; // update odometer internally
+  const driven: number = Math.floor(Math.random() * 901) + 100; // 100..1000 km
+  odometer += driven;
   return driven;
 }
 
-// Function: fillUp() prompts user for the price paid and stores it in gasCost
+// Function: fillUp() prompts user for the price paid and stores it
 function fillUp(): void {
   if (fillIndex >= gasCost.length) {
     console.log("Gas cost array is full; cannot record more fill-ups.");
     return;
   }
+
   const input = prompt("Enter how much you paid for the gas to fill up: ") || "0";
   const cost = Number(input);
+
   gasCost[fillIndex++] = cost;
   console.log(`Recorded fill-up of $${cost.toFixed(2)} at slot ${fillIndex - 1}.`);
 }
@@ -60,21 +63,24 @@ function displayCostToFillUp(): number {
     console.log("No fill-up records.");
     return 0;
   }
+
   console.log("\nRecorded fill-up costs:");
   let sum = 0;
+
   for (let i = 0; i < fillIndex; i++) {
     console.log(`Fill-up ${i + 1}: $${gasCost[i].toFixed(2)}`);
     sum += gasCost[i];
   }
+
   const avg = sum / fillIndex;
   console.log(`Average cost per fill-up: $${avg.toFixed(2)}`);
   return avg;
 }
 
-// Function: oilChange() returns boolean, prints message, and updates oilChangeKM internally
+// Function: oilChange() handles oil change logic
 function oilChange(): boolean {
   if (odometer - oilChangeKM >= 5000) {
-    oilChangeKM = odometer; // update last oil change
+    oilChangeKM = odometer;
     console.log("\nAn oil change was done.");
     return true;
   } else {
@@ -88,20 +94,20 @@ function oilChange(): boolean {
 console.log("Initial car stats:");
 console.log(carStats());
 
-// wrap the car (change colour)
-const colourInput = wrapCar();
-carColor = colourInput;
+// wrap car
+carColor = wrapCar();
 console.log(`\nCar colour updated to: ${carColor}`);
 
-// drive
+// drive car
 const drivenKm = drive();
 console.log(`\nYou drove ${drivenKm} km. New odometer: ${odometer} km.`);
 
-// ask user to fill up now
+// fill up
 fillUp();
 
-// display fill-up costs and average
+// show average fill cost
 const avgCost = displayCostToFillUp();
+console.log(`\n(Info) Returned average cost: $${avgCost.toFixed(2)}`); // <-- FIXED unused variable
 
 // check oil change
 oilChange();
@@ -110,3 +116,4 @@ console.log("\nFinal car stats:");
 console.log(carStats());
 
 console.log("\nDone.");
+

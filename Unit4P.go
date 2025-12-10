@@ -15,8 +15,8 @@ import (
 var makeCar string = "UsedCarBrand"
 var model string = "ModelX"
 var carColor string = "Silver"
-var odometer int = 65000      // starting mileage
-var oilChangeKM int = 65000   // last oil change
+var odometer int = 65000    // starting mileage
+var oilChangeKM int = 65000 // last oil change
 var gasCost [10]float64
 var fillIndex int = 0
 
@@ -83,10 +83,9 @@ func oilChange() bool {
 		oilChangeKM = odometer
 		fmt.Println("\nAn oil change was done.")
 		return true
-	} else {
-		fmt.Println("\nYour car does not need an oil change.")
-		return false
 	}
+	fmt.Println("\nYour car does not need an oil change.")
+	return false
 }
 
 func main() {
@@ -109,8 +108,7 @@ func main() {
 	fillUp()
 
 	// display fill-up costs and average
-	avgCost := displayCostToFillUp()
-	_ = avgCost // just to use the variable
+	_ = displayCostToFillUp() // avoid unused variable
 
 	// check oil change
 	oilChange()
