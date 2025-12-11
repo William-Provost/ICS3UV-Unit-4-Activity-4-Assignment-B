@@ -90,7 +90,7 @@ func oilChange() bool {
 }
 
 func main() {
-	// initial fill-up 
+	// initial fill-up
 	gasCost[fillIndex] = 74.0
 	fillIndex++
 
