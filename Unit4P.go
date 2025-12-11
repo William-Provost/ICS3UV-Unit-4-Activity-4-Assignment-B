@@ -109,13 +109,13 @@ func main() {
 	fillUp()
 
 	// display fill-up costs and average
-	_ = displayCostToFillUp() 
+	_ = displayCostToFillUp()
 
 	// check oil change
 	oilChange()
 
 	fmt.Println("\nFinal car stats:")
-	fmt.Println(carStats()) // <-- this shows odometer, oilChangeKM, and fillIndex 
+	fmt.Println(carStats()) // <-- this shows odometer, oilChangeKM, and fillIndex
 
 	fmt.Println("\nDone.")
 }
