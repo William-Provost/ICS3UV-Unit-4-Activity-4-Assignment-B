@@ -90,7 +90,7 @@ func oilChange() bool {
 }
 
 func main() {
-	// initial fill-up per assignment
+	// initial fill-up 
 	gasCost[fillIndex] = 74.0
 	fillIndex++
 
@@ -109,13 +109,13 @@ func main() {
 	fillUp()
 
 	// display fill-up costs and average
-	_ = displayCostToFillUp() // avoid unused variable
+	_ = displayCostToFillUp() 
 
 	// check oil change
 	oilChange()
 
 	fmt.Println("\nFinal car stats:")
-	fmt.Println(carStats()) // <-- this now shows odometer, oilChangeKM, and fillIndex properly
+	fmt.Println(carStats()) // <-- this shows odometer, oilChangeKM, and fillIndex 
 
 	fmt.Println("\nDone.")
 }

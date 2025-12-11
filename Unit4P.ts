@@ -5,7 +5,7 @@
  * @fileoverview This program keeps track of car stats and simulates drive/fill/oil change
  */
 
-// Initial data (per assignment)
+// Initial data
 const make: string = "UsedCarBrand";
 const model: string = "ModelX";
 let carColor: string = "Silver";
@@ -14,7 +14,7 @@ let oilChangeKM: number = 65000;    // last oil change at 65000
 const gasCost: number[] = new Array(10);
 let fillIndex: number = 0;
 
-// initial fill-up per assignment
+// initial fill-up
 gasCost[fillIndex++] = 74.0;
 
 // Function: carStats() returns a string of car info
@@ -107,7 +107,7 @@ fillUp();
 
 // show average fill cost
 const avgCost = displayCostToFillUp();
-console.log(`\n(Info) Returned average cost: $${avgCost.toFixed(2)}`); // <-- FIXED unused variable
+console.log(`\n(Info) Returned average cost: $${avgCost.toFixed(2)}`);
 
 // check oil change
 oilChange();
